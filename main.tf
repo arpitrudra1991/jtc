@@ -6,11 +6,6 @@ terraform {
   }
 }
 
-provider "google" {
-  credentials = "${file("dotted-tide-203005-8ff54b1a307f.json")}"
-  project     = "dotted-tide-203005"
-  region      = "europe-west1-b"
-}
 resource "google_pubsub_topic" "default-topic" {
   name = "default-topic"
 }
