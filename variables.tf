@@ -10,15 +10,15 @@ variable project {
 
 variable region {
   description = "Region for cloud resources"
-  default     = "europe-west2"
+  default     = "europe-west1-b"
 }
 
 variable topicname {
   description = ""
-  default     = "default-topic"
+  default     = "default-topic1"
 }
 
 variable subname {
   description = ""
-  default     = "default-subscription"
+  default     = "default-subscription1"
 }
