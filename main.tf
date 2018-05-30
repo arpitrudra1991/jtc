@@ -7,10 +7,10 @@ terraform {
 }
 
 resource "google_pubsub_topic" "default-topic" {
-  name = "default-topic"
+  name = "${var.topicname}"
 }
 resource "google_pubsub_subscription" "default" {
-  name  = "default-subscription"
+  name  = "${var.subname}"
   topic = "${google_pubsub_topic.default-topic.name}"
 
   ack_deadline_seconds = 20
