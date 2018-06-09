@@ -1,5 +1,5 @@
 ource "azurerm_resource_group" "arpittest" {
-  name     = "arpittest-01"
+  name     = "arpittest-02"
   location = "West US"
 }
 
