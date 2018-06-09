@@ -1,17 +1,23 @@
-terraform {
-  backend "consul" {
-    address = "35.190.208.22:8500"
-    path    = "remote-state-file"
-	lock 	= "false"
+ource "azurerm_resource_group" "arpittest" {
+  name     = "acctestrg-01"
+  location = "West US"
+}
+
+#your armtemplate part where you can pass the json file
+resource "azurerm_template_deployment" "artest" {
+  name                = "acctesttemplate-01"
+  resource_group_name = "${azurerm_resource_group.arpittest.name}"
+  template_body       = "${file("${path.module}/resource.json")}"
+
+
+  # these key-value pairs are passed into the ARM Template's `parameters` block
+  parameters {
+    "storageAccountType" = "Standard_GRS"
   }
+
+  deployment_mode = "Incremental"
 }
 
-resource "google_pubsub_topic" "default-topic" {
-  name = "${var.topicname}"
-}
-resource "google_pubsub_subscription" "default" {
-  name  = "${var.subname}"
-  topic = "${google_pubsub_topic.default-topic.name}"
-
-  ack_deadline_seconds = 20
+output "storageAccountName" {
+  value = "${azurerm_template_deployment.artest.outputs["storageAccountName"]}"
 }
