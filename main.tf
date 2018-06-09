@@ -1,5 +1,5 @@
-ource "azurerm_resource_group" "arpittest" {
-  name     = "arpittest-01"
+resource "azurerm_resource_group" "arpittest" {
+  name     = "acctestrg-01"
   location = "West US"
 }
 
