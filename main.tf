@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "arpittest" {
-  name     = "acctestrg-02"
+  name     = "acctestrg-01"
   location = "West US"
 }
 
