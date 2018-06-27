@@ -1,3 +1,3 @@
 # jtc
 
-Email Notification one
+Email Notification
